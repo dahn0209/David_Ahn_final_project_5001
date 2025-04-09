@@ -2,11 +2,11 @@ import unittest
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from user_management import (
-    set_username, get_current_user, sign_up, sign_in, sign_out,
-    update_password, delete_user, current_user
-)
 from database import initialize_user_db, global_change_db
+from user_management import (
+    set_username, get_current_user, sign_up, sign_in,
+    sign_out, update_password, delete_user, current_user
+)
 
 
 class TestUserManagement(unittest.TestCase):
@@ -16,7 +16,6 @@ class TestUserManagement(unittest.TestCase):
     management operations such as sign up, sign in, sign out, update password, 
     and delete user.
 
-   
     """
 
     def setUp(self):

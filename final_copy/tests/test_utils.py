@@ -1,10 +1,10 @@
+import bcrypt
 import unittest
 from unittest.mock import patch, mock_open
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import is_valid_password, is_password_reused
-import bcrypt
 
 
 class TestPasswordValidation(unittest.TestCase):
@@ -59,7 +59,6 @@ class TestPasswordValidation(unittest.TestCase):
     def test_missing_digit(self):
         """
         Test case for a password that is missing a digit.
-        
         """
         password = "Password!"
         with self.assertRaises(ValueError) as context:

@@ -70,6 +70,7 @@ def sign_up(username, password):
 
     return "Sign up successful!"
 
+
 def sign_in(username, password):
     """
     Signs in a user.
@@ -105,6 +106,7 @@ def sign_in(username, password):
     # If username is not found
     return "Username not found."
 
+
 def sign_out():
     """
     Signs out the current user.
@@ -119,7 +121,6 @@ def sign_out():
     user = current_user
     current_user = None
     return f"User '{user}' signed out successfully!"
-
 
 
 def update_password(old_password, new_password):
@@ -154,7 +155,8 @@ def update_password(old_password, new_password):
         for row in reader:
             if row['username'] == current_user:
                 if check_password(row['password'].encode('utf-8'), old_password):
-                    row['password'] = hash_password(new_password).decode('utf-8')
+                    row['password'] = hash_password(
+                        new_password).decode('utf-8')
                     password_updated = True
                 else:
                     return "Old password is incorrect."

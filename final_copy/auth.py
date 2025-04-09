@@ -3,11 +3,10 @@ import bcrypt
 
 def hash_password(password):
     """
-    Hashes a plaintext password using bcrypt.
+    Hashes a password using bcrypt.
 
     Args:
         password (str): The plaintext password to hash. 
-                        Must be a non-empty string.
 
     Returns:
         bytes: The hashed password as a byte string.
@@ -68,7 +67,6 @@ def check_password(hashed_password, password):
         hashed_password (bytes): The hashed password to verify against.
                                  Must be a bcrypt-generated hash in byte format.
         password (str): The plaintext password to check.
-                        Must be a non-empty string.
 
     Returns:
         bool: `True` if the password matches the hashed password, `False` otherwise.
@@ -108,4 +106,3 @@ def check_password(hashed_password, password):
         raise ValueError("Password cannot be empty.")
 
     return bcrypt.checkpw(password.encode('utf-8'), hashed_password)
-

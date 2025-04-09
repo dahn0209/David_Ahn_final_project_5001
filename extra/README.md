@@ -11,9 +11,9 @@
 
 The Final Project is a simplified user management system with sign-up, sign-in, password management, and user management features. It relies on a CSV file as the user database to save the data, which stores usernames and hashed passwords. Passwords are hashed using bcrypt to enhance security, and the system checks password strength and reusability to prevent weak or reused passwords.
 
-I decided to create this project because this project will complement and improve my previous experience working on e-commerce websites dealing with user sign-up and sign-in with passwords from my bootcamp projects. Rather than using JavaScript and JavaScript frameworks such as React, Node, and Express, I wanted to implement Python and other new tools for coding. During my Final Project discussion, I was still brainstorming about database storage. Reflecting on previous homework such as HW 7 and HW 8, I thought JSON files were ideal for saving data. However, the TA recommended that I use CSV files for storing data. Thus, 
+I decided to create this project because this project will complement and improve my previous experience working on e-commerce websites dealing with user sign-up and sign-in with passwords from my bootcamp projects. Rather than using JavaScript and JavaScript frameworks such as React, Node, and Express, I wanted to implement Python and other new tools for coding. During my Final Project discussion, I was still brainstorming about database storage. Reflecting on previous homework such as HW 7 and HW 8, I thought JSON files were ideal for saving data. However, the TA recommended that I use CSV files for storing data. 
 
-I researched more about CSV, and other examples of password checkers to help me create a project that saves usernames and passwords into different files with sign-up, sign-in, password management, and user management features.
+Thus, I researched more about CSV, and other examples of password checkers to help me create a project that saves usernames and passwords into different files with sign-up, sign-in, password management, and user management features.
 
 
 ## Key Features
@@ -43,8 +43,6 @@ It provides a simple and interactive CLI for users to manage their accounts and 
 The system opens the possibility of adding additional functionality such as email verification, and two-factor authentication in the future.
 It allows working with multiple databases such as the set_user_db() function, which allows flexibility in managing user accounts.
 
-
-
 ## Guide
 ### How do we run your project? What should we do to see it in action? - Note this isn't installing, this is actual use of the project.. If it is a website, you can point towards the gui, use screenshots, etc talking about features. 
 
@@ -67,7 +65,7 @@ python3 main.py
 
 After running main.py, a menu pops out of the terminal with options such as setting a database, signing up, and managing users. 
 
-```
+```terminal
 User System
 1. Set User Database
 2. Create New User Database
@@ -85,7 +83,7 @@ To navigate the menu,
   1.  Setting User Database csv file
       * Select option 1 from the menu
       * Enter the existing CSV file to use  
-```
+```terminal
 User System
 1. Set User Database
 2. Create New User Database
@@ -101,12 +99,12 @@ User System
 Choose an option: 1
 Enter the existing CSV file to use: user_db.csv
 User database set to 'user_db.csv'.
-
 ```
   2. Sign Up a New User:
     * Select option 4 from the menu.
     * Enter a username and a strong password that satisfies the rules.
-```
+  
+```terminal
 User System
 1. Set User Database
 2. Create New User Database
@@ -124,10 +122,10 @@ Enter username: john_doe
 Enter password: SecurePassword123!
 Sign up successful!
 ```
-  3. Sign In:
+  1. Sign In:
      * Select option 5.
      * Provide the same username and password.  
-```
+```terminal
 User System
 1. Set User Database
 2. Create New User Database
@@ -148,7 +146,7 @@ Current signed-in user: john_doe
  1. Sign Out:
      * Select option 6.
      * user is signed out.  
-```
+```terminal
 User System
 1. Set User Database
 2. Create New User Database
@@ -171,13 +169,13 @@ If we wanted to run this project locally, what would we need to do?  If we need 
 ### 1. Environment
 * Install Python  
 
-```
+```bash
 python3 --version
 
 ```  
 * Install bcrypt for hashing
 
-```
+```bash
 pip3 install bcrypt
 
 ```
@@ -189,22 +187,22 @@ pip3 install bcrypt
 
 ### 3. Run the Code
 * Run main.py to run the code directly
-  ```
-  python3 main.py
 
+  ```bash
+  python3 main.py
   ```
 ### 4. Testing
 
 * To run doctest, run the specific file (eg. auth.py) with a doctest
 
-```
+```bash
 python -m doctest -v auth.py
 
 ```
 
 * To run unit test, run the test files in the tests foldler
 
-```
+```bash
 cd tests
 python3 test_main.py
 ```
@@ -405,13 +403,25 @@ Key aspects could include pieces that your struggled on and/or pieces that you a
 
 
 ## Example Runs
-Explain how you documented running the project, and what we need to look for in your repository (text output from the project, small videos, links to videos on youtube of you running it, etc)
+### Explain how you documented running the project, and what we need to look for in your repository (text output from the project, small videos, links to videos on youtube of you running it, etc)
+Link to running the project: https://youtu.be/R7m_3Tg7kUg
 
 ## Testing
-How did you test your code? What did you do to make sure your code was correct? If you wrote unit tests, you can link to them here. If you did run tests, make sure you document them as text files, and include them in your submission. 
+### How did you test your code? What did you do to make sure your code was correct? If you wrote unit tests, you can link to them here. If you did run tests, make sure you document them as text files, and include them in your submission. 
 
 > _Make it easy for us to know you *ran the project* and *tested the project* before you submitted this report!_
 
+I created unit tests using Python’s unittest module for files involving csv files because doctest was insufficient to debug and test all different edgecases. These files include:
+ 
+* database.py
+* main.py
+* user_management.py
+* utils.py
+
+However, I used doctest in docstring for files that did not have csv files. This file includes:
+* auth.py
+
+These tests helped focused on valid inputs producing the expected results, invalid inputs generating appropriate error messages, and edge cases for every scenario
 
 ## Missing Features / What's Next
 ### Focus on what you didn't get to do, and what you would do if you had more time, or things you would implement in the future. 
